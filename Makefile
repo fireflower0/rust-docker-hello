@@ -1,11 +1,10 @@
 TARGET = rust-docker-hello
 PORT   = 8080:8080
+DOCKER = docker
 
-build:
-	docker build -t $(TARGET) .
-
-run:
-	docker run -d -p $(PORT) $(TARGET)
+all:
+	$(DOCKER) build -t $(TARGET) .
+	$(DOCKER) run -d -p $(PORT) $(TARGET)
 
 # clean:
 # 	docker stop $(docker ps -q)
